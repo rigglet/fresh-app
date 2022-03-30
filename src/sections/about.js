@@ -23,7 +23,7 @@ const About = ({ aboutRef, aboutControls }) => {
         <div className="section-title-content">
           <h1 className="section-heading heading-dark">About me</h1>
         </div>
-        <StyledLine height="6px" width="100%" bgColor="#f5f5f5" />
+        <StyledLine height="6px" width="100%" bgcolor="#f5f5f5" />
       </motion.div>
 
       <div className="content">

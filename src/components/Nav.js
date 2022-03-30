@@ -33,7 +33,7 @@ const Nav = ({
           <h1>Home</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{
               width: "0%",
             }}
@@ -55,7 +55,7 @@ const Nav = ({
           <h1>About</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: aboutInView ? "100%" : "0%",
@@ -74,7 +74,7 @@ const Nav = ({
           <h1>Portfolio</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: portfolioInView ? "100%" : "0%",
@@ -93,7 +93,7 @@ const Nav = ({
           <h1>Skills</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: skillsInView ? "100%" : "0%",
@@ -112,7 +112,7 @@ const Nav = ({
           <h1>Education</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: educationInView ? "100%" : "0%",
@@ -131,7 +131,7 @@ const Nav = ({
           <h1>Experience</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: experienceInView ? "100%" : "0%",
@@ -150,7 +150,7 @@ const Nav = ({
           <h1>Contact</h1>
           <NavLine
             height="4px"
-            bgColor="#313131"
+            bgcolor="#313131"
             initial={{ width: "0%" }}
             animate={{
               width: contactInView ? "100%" : "0%",
@@ -515,7 +515,7 @@ const NavLine = styled(motion.div)`
     #65617d 25%,
     #689ed0 50%,
     #c6c6c6 75%,
-    ${({ bgColor }) => (bgColor ? bgColor : "#f5f5f5")} 100%
+    ${({ bgcolor }) => (bgcolor ? bgcolor : "#f5f5f5")} 100%
   );
   background: #689ed0;
   height: ${({ height }) => (height ? height : "6px")};
