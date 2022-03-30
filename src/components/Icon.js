@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 //icons
 import { IconContext } from "react-icons";
-import * as allIcons from "@react-icons/all-files";
+//import * as allIcons from "@react-icons/all-files";
 import * as aiIcons from "react-icons/ai";
 import * as bsIcons from "react-icons/bs";
 import * as biIcons from "react-icons/bi";
