@@ -7,10 +7,9 @@ export function serverBaseURL() {
 
   //PRODUCTION
   //e.g https://portfolio-server26052021.herokuapp.com/api/projects
-  //const protocol = "https";
-  //const host = "portfolio-server26052021.herokuapp.com";
+  const host = "portfolio-server26052021.herokuapp.com";
   const protocol = "https";
-  const host = "neilrigg.com";
+  //const host = "neilrigg.com";
   //const port = "80";
   return `${protocol}://${host}`;
 }
