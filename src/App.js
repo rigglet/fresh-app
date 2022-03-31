@@ -4,7 +4,7 @@ import Home from "./sections/home";
 import About from "./sections/about";
 import Education from "./sections/education";
 import Experience from "./sections/experience";
-//import Contact from "./sections/contact";
+import Contact from "./sections/contact";
 import Portfolio from "./sections/portfolio";
 import Skills from "./sections/skills";
 
@@ -23,7 +23,7 @@ function App() {
   const [skillsRef, skillsControls, skillsInView] = useScroll();
   const [educationRef, educationControls, educationInView] = useScroll();
   const [experienceRef, experienceControls, experienceInView] = useScroll();
-  //const [contactRef, contactControls, contactInView] = useScroll();
+  const [contactRef, contactControls, contactInView] = useScroll();
 
   const elementRef = useRef();
 
@@ -43,7 +43,7 @@ function App() {
                   skillsInView={skillsInView}
                   educationInView={educationInView}
                   experienceInView={experienceInView}
-                  //contactInView={contactInView}
+                  contactInView={contactInView}
                 />
                 <Section id="home" full>
                   <Container full dark>
@@ -87,14 +87,14 @@ function App() {
                     />
                   </Container>
                 </Section>
-                {/* <Section id="contact" full>
+                <Section id="contact" full>
                   <Container dark>
-                  <Contact
-                  contactRef={contactRef}
-                  contactControls={contactControls}
-                  />
+                    <Contact
+                      contactRef={contactRef}
+                      contactControls={contactControls}
+                    />
                   </Container>
-                </Section> */}
+                </Section>
               </>
             }
           />

@@ -11,7 +11,7 @@ export const getUserData = async (auth) => {
   const images = `${serverBaseURL()}/api/users/${id}/images`;
   const tools = `${serverBaseURL()}/api/users/${id}/tools`;
   const links = `${serverBaseURL()}/api/users/${id}/links`;
-  const texts = `${serverBaseURL()}/api/users/${id}/texts`;
+  //const texts = `${serverBaseURL()}/api/users/${id}/texts`;
   //const roadmaps = `${serverBaseURL()}/api/users/${id}/roadmaps`;
 
   const headers = {
@@ -27,7 +27,7 @@ export const getUserData = async (auth) => {
   const requestImages = await axios.get(images, headers);
   const requestTools = await axios.get(tools, headers);
   const requestLinks = await axios.get(links, headers);
-  const requestTexts = await axios.get(texts, headers);
+  //const requestTexts = await axios.get(texts, headers);
   //const requestRoadmaps = await axios.get(roadmaps, headers);
 
   try {
@@ -40,7 +40,7 @@ export const getUserData = async (auth) => {
         requestImages,
         requestTools,
         requestLinks,
-        requestTexts,
+        //requestTexts,
       ])
       .then(
         axios.spread((...responses) => {

@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.26.1",
     "emailjs": "^3.8.0",
+    "emailjs-com": "^2.6.4",
     "framer-motion": "^6.2.8",
     "install": "^0.13.0",
     "luxon": "^2.3.1",

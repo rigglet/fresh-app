@@ -22,7 +22,7 @@ export default function styledLine({
     <StyledLine
       height={height}
       width={width}
-      bgColor={bgColor}
+      bgcolor={bgColor}
       initial={i}
       animate={a}
     />

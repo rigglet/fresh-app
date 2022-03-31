@@ -19,7 +19,7 @@ import {
 } from "../styles/animations";
 
 //email
-import { SMTPClient } from "emailjs";
+import emailjs from "emailjs-com";
 
 //message components
 import { ToastContainer, toast, Zoom } from "react-toastify";
@@ -67,12 +67,13 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
-    SMTPClient.sendForm(
-      process.env.REACT_APP_SERVICE_ID,
-      process.env.REACT_APP_TEMPLATE_ID,
-      e.target,
-      process.env.REACT_APP_USER_ID
-    )
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_SERVICE_ID,
+        process.env.REACT_APP_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_USER_ID
+      )
       .then((result) => {
         if (result.status === 200) {
           //sent message
@@ -86,7 +87,7 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
         }
       })
       .catch((err) => {
-        console.log(err);
+        //console.log(err);
         notify("FAILURE");
       });
   };
