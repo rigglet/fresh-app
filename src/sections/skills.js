@@ -1,4 +1,4 @@
-//import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 //uuid
 import { v4 as uuidv4 } from "uuid";
 //framer motion and styled components
@@ -7,14 +7,48 @@ import styled from "styled-components";
 import StyledLine from "../styles/styledLine";
 import Icon from "../components/Icon";
 import { selection, slideDown, bounceUp } from "../styles/animations";
+import { getCollection } from "../api/api";
 
 const Skills = ({
   skillsRef,
   skillsControls,
-  technologies,
-  tools,
+  //technologies,
+  //tools,
   allIcons,
 }) => {
+  const [technologies, setTechnologies] = useState([]);
+  const [tools, setTools] = useState([]);
+
+  useEffect(() => {
+    async function getTechnologies() {
+      return await getCollection("technologies");
+    }
+    async function getTools() {
+      return await getCollection("tools");
+    }
+
+    getTechnologies()
+      .then((results) => {
+        if (results.status === 200) {
+          //console.log(results.status);
+          setTechnologies(results.data);
+        }
+      })
+      .catch((err) => {
+        console.log("Skills: get Technologies error: ", err);
+      });
+
+    getTools()
+      .then((results) => {
+        if (results.status === 200) {
+          setTools(results.data);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   const frontend = technologies.filter((t) => t.category === "frontend");
   const backend = technologies.filter((t) => t.category === "backend");
   const database = technologies.filter((t) => t.category === "database");

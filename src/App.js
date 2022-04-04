@@ -1,16 +1,16 @@
 //import * as allIcons from "@react-icons/all-files";
-// import * as aiIcons from "react-icons/ai";
-// import * as bsIcons from "react-icons/bs";
-// import * as biIcons from "react-icons/bi";
-// import * as fcIcons from "react-icons/fc";
-// import * as giIcons from "react-icons/gi";
-// import * as goIcons from "react-icons/go";
-// import * as grIcons from "react-icons/gr";
-// import * as ioIcons from "react-icons/io";
-// import * as io5Icons from "react-icons/io5";
-// import * as riIcons from "react-icons/ri";
-// import * as tiIcons from "react-icons/ti";
-// import * as wiIcons from "react-icons/wi";
+import * as aiIcons from "react-icons/ai";
+import * as bsIcons from "react-icons/bs";
+import * as biIcons from "react-icons/bi";
+import * as fcIcons from "react-icons/fc";
+import * as giIcons from "react-icons/gi";
+import * as goIcons from "react-icons/go";
+import * as grIcons from "react-icons/gr";
+import * as ioIcons from "react-icons/io";
+import * as io5Icons from "react-icons/io5";
+import * as riIcons from "react-icons/ri";
+import * as tiIcons from "react-icons/ti";
+import * as wiIcons from "react-icons/wi";
 
 import * as cgIcons from "react-icons/cg";
 import * as mdIcons from "react-icons/md";
@@ -32,14 +32,13 @@ import Contact from "./sections/contact";
 import Portfolio from "./sections/portfolio";
 import Skills from "./sections/skills";
 
-import { useRef, useState, useEffect } from "react";
+import { useRef } from "react";
 import { AnimatePresence } from "framer-motion";
-//import Splash from "./pages/Splash";
 import Nav from "./components/Nav";
 import { Routes, Route } from "react-router-dom";
 import useScroll from "./components/useScroll";
 //import useHideNav from "./components/useHideNav";
-import { getCollection } from "./api/api";
+//import { getCollection } from "./api/api";
 
 function App() {
   const [homeRef, homeControls, homeInView] = useScroll();
@@ -51,23 +50,23 @@ function App() {
   const [contactRef, contactControls, contactInView] = useScroll();
 
   const elementRef = useRef();
-  const [technologies, setTechnologies] = useState([]);
-  const [tools, setTools] = useState([]);
+  // const [technologies, setTechnologies] = useState([]);
+  // const [tools, setTools] = useState([]);
 
   //icons
   let allIcons = {
-    //...aiIcons,
-    //...bsIcons,
-    //...biIcons,
-    //...fcIcons,
-    //...giIcons,
-    //...goIcons,
-    //...grIcons,
-    //...ioIcons,
-    //...io5Icons,
-    //...riIcons,
-    //...tiIcons,
-    //...wiIcons,
+    ...aiIcons,
+    ...bsIcons,
+    ...biIcons,
+    ...fcIcons,
+    ...giIcons,
+    ...goIcons,
+    ...grIcons,
+    ...ioIcons,
+    ...io5Icons,
+    ...riIcons,
+    ...tiIcons,
+    ...wiIcons,
     ...cgIcons,
     ...mdIcons,
     ...diIcons,
@@ -79,35 +78,35 @@ function App() {
     ...vscIcons,
   };
 
-  useEffect(() => {
-    async function getTechnologies() {
-      return await getCollection("technologies");
-    }
-    async function getTools() {
-      return await getCollection("tools");
-    }
+  // useEffect(() => {
+  //   async function getTechnologies() {
+  //     return await getCollection("technologies");
+  //   }
+  //   async function getTools() {
+  //     return await getCollection("tools");
+  //   }
 
-    getTechnologies()
-      .then((results) => {
-        if (results.status === 200) {
-          //console.log(results.status);
-          setTechnologies(results.data);
-        }
-      })
-      .catch((err) => {
-        console.log("Skills: get Technologies error: ", err);
-      });
+  //   getTechnologies()
+  //     .then((results) => {
+  //       if (results.status === 200) {
+  //         //console.log(results.status);
+  //         setTechnologies(results.data);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log("Skills: get Technologies error: ", err);
+  //     });
 
-    getTools()
-      .then((results) => {
-        if (results.status === 200) {
-          setTools(results.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  //   getTools()
+  //     .then((results) => {
+  //       if (results.status === 200) {
+  //         setTools(results.data);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   return (
     <div className="app" ref={elementRef}>
@@ -152,8 +151,8 @@ function App() {
                     <Skills
                       skillsRef={skillsRef}
                       skillsControls={skillsControls}
-                      technologies={technologies}
-                      tools={tools}
+                      //technologies={technologies}
+                      //tools={tools}
                       allIcons={allIcons}
                     />
                   </Container>
