@@ -6,7 +6,7 @@ import Icon from "../components/Icon";
 import mortarImage from "../img/mortarboard.svg";
 //import { fadeInOut } from "../styles/animations";
 
-const Education = ({ educationRef, educationControls }) => {
+const Education = ({ educationRef, educationControls, allIcons }) => {
   return (
     <EducationSection ref={educationRef}>
       <div className="section-header">
@@ -16,6 +16,7 @@ const Education = ({ educationRef, educationControls }) => {
             size="30px"
             color="whitesmoke"
             title="Education icon"
+            allIcons={allIcons}
           />
           <h1 className="section-heading heading-light">Education</h1>
         </div>

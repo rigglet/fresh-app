@@ -16,7 +16,7 @@ import Icon from "../components/Icon";
 //   //containerSlideInOutLeft,
 // } from "../styles/animations";
 
-const Experience = ({ experienceRef, experienceControls }) => {
+const Experience = ({ experienceRef, experienceControls, allIcons }) => {
   return (
     <ExperienceSection
       ref={experienceRef}
@@ -31,6 +31,7 @@ const Experience = ({ experienceRef, experienceControls }) => {
             size="30px"
             color="var(--header-color-dark)"
             title="Projects icon"
+            allIcons={allIcons}
           />
           <h1 className="section-heading heading-dark">Experience</h1>
         </div>
@@ -69,6 +70,7 @@ const Experience = ({ experienceRef, experienceControls }) => {
                 color="#313131"
                 size="25px"
                 title="work icon"
+                allIcons={allIcons}
               />
             }
           >
@@ -96,6 +98,7 @@ const Experience = ({ experienceRef, experienceControls }) => {
                 color="#313131"
                 size="25px"
                 title="work icon"
+                allIcons={allIcons}
               />
             }
           >

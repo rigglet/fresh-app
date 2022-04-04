@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 //uuid
 import { v4 as uuidv4 } from "uuid";
 //framer motion and styled components
@@ -6,54 +6,15 @@ import { motion } from "framer-motion";
 import styled from "styled-components";
 import StyledLine from "../styles/styledLine";
 import Icon from "../components/Icon";
-import {
-  //containerSlideInOutRight,
-  // slideUp,
-  // bounceDown,
-  // slideRight,
-  // slideLeft,
-  selection,
-  slideDown,
-  bounceUp,
-} from "../styles/animations";
+import { selection, slideDown, bounceUp } from "../styles/animations";
 
-//data
-import { getCollection } from "../api/api";
-
-const Skills = ({ skillsRef, skillsControls }) => {
-  const [technologies, setTechnologies] = useState([]);
-  const [tools, setTools] = useState([]);
-
-  useEffect(() => {
-    async function getTechnologies() {
-      return await getCollection("technologies");
-    }
-    async function getTools() {
-      return await getCollection("tools");
-    }
-
-    getTechnologies()
-      .then((results) => {
-        if (results.status === 200) {
-          //console.log(results.status);
-          setTechnologies(results.data);
-        }
-      })
-      .catch((err) => {
-        console.log("Skills: get Technologies error: ", err);
-      });
-
-    getTools()
-      .then((results) => {
-        if (results.status === 200) {
-          setTools(results.data);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
+const Skills = ({
+  skillsRef,
+  skillsControls,
+  technologies,
+  tools,
+  allIcons,
+}) => {
   const frontend = technologies.filter((t) => t.category === "frontend");
   const backend = technologies.filter((t) => t.category === "backend");
   const database = technologies.filter((t) => t.category === "database");
@@ -70,7 +31,12 @@ const Skills = ({ skillsRef, skillsControls }) => {
 
   return (
     <SkillsSection ref={skillsRef}>
-      <section className="skill-section">
+      <section
+        className="skill-section"
+        // variants={slideRight}
+        // initial="initial"
+        // animate={skillsControls}
+      >
         <div className="section-header">
           <motion.div
             variants={slideDown}
@@ -83,6 +49,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
               size="30px"
               color="#313131"
               title="Skills icon"
+              allIcons={allIcons}
             />
             <h1 className="section-heading heading-dark">Technical Skills</h1>
           </motion.div>
@@ -143,7 +110,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
               >
                 {frontend.map((technology) => {
                   return (
-                    <motion.div className="skill-item" key={uuidv4()}>
+                    <div className="skill-item" key={uuidv4()}>
                       <a
                         key={uuidv4()}
                         href={technology.address}
@@ -155,9 +122,10 @@ const Skills = ({ skillsRef, skillsControls }) => {
                           icon={technology.icon}
                           color={technology.color}
                           size="70px"
+                          allIcons={allIcons}
                         />
                       </a>
-                    </motion.div>
+                    </div>
                   );
                 })}
               </motion.div>
@@ -213,6 +181,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
                           icon={technology.icon}
                           color={technology.color}
                           size="70px"
+                          allIcons={allIcons}
                         />
                       </a>
                     </motion.div>
@@ -271,6 +240,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
                           icon={technology.icon}
                           color={technology.color}
                           size="70px"
+                          allIcons={allIcons}
                         />
                       </a>
                     </motion.div>
@@ -329,6 +299,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
                           icon={technology.icon}
                           color={technology.color}
                           size="70px"
+                          allIcons={allIcons}
                         />
                       </a>
                     </motion.div>
@@ -387,6 +358,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
                           icon={technology.icon}
                           color={technology.color}
                           size="70px"
+                          allIcons={allIcons}
                         />
                       </a>
                     </motion.div>
@@ -441,7 +413,12 @@ const Skills = ({ skillsRef, skillsControls }) => {
                         rel="noreferrer"
                       >
                         <h4>{tool.name}</h4>
-                        <Icon icon={tool.icon} color={tool.color} size="70px" />
+                        <Icon
+                          icon={tool.icon}
+                          color={tool.color}
+                          size="70px"
+                          allIcons={allIcons}
+                        />
                       </a>
                     </motion.div>
                   );
@@ -465,6 +442,7 @@ const Skills = ({ skillsRef, skillsControls }) => {
               size="30px"
               color="#313131"
               title="Skills icon"
+              allIcons={allIcons}
             />
             <h1 className="section-heading heading-dark">Soft Skills</h1>
           </motion.div>

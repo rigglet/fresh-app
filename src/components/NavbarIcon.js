@@ -9,6 +9,7 @@ const NavbarIcon = ({
   className,
   func,
   showDropMenu,
+  allIcons,
 }) => {
   return (
     <div onClick={() => func(!showDropMenu)}>
@@ -18,6 +19,7 @@ const NavbarIcon = ({
         size={size}
         title={title}
         className={className}
+        allIcons={allIcons}
       />
     </div>
   );

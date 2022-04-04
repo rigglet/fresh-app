@@ -19,6 +19,7 @@ const ProjectCard = ({
   explorer = false,
   portfolio = false,
   showStar = false,
+  allIcons,
 }) => {
   let [mainImage, setMainImage] = useState({});
 
@@ -39,6 +40,7 @@ const ProjectCard = ({
           icon="CgDetailsMore"
           color="whitesmoke"
           size="100px"
+          allIcons={allIcons}
         />
         <div className="links">
           {project.githubLink && (
@@ -88,6 +90,7 @@ const ProjectCard = ({
             size="25px"
             title="Featured project"
             className="featured"
+            allIcons={allIcons}
           />
         )}
         {/* {project.screenshots[0]?.fileName ? (
@@ -106,7 +109,13 @@ const ProjectCard = ({
             alt="project"
           />
         ) : (
-          <Icon icon="BsImageFill" color="#65617d" size="50%" title="project" />
+          <Icon
+            icon="BsImageFill"
+            color="#65617d"
+            size="50%"
+            title="project"
+            allIcons={allIcons}
+          />
         )}
       </div>
       <div className="information">
@@ -141,6 +150,7 @@ const ProjectCard = ({
               icon={tech.icon}
               color={tech.color}
               size="30px"
+              allIcons={allIcons}
             />
             // </a>
           ))}

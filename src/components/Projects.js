@@ -17,6 +17,7 @@ const Projects = ({
   explorer = false,
   portfolio = false,
   showStar = false,
+  allIcons,
 }) => {
   //const [element, controls] = useScroll();
 
@@ -48,6 +49,7 @@ const Projects = ({
           id={uuidv4()}
           project={currentProject}
           projectClose={projectClose}
+          allIcons={allIcons}
         />
       )}
 
@@ -59,6 +61,7 @@ const Projects = ({
           portfolio={portfolio}
           explorer={explorer}
           showStar={showStar}
+          allIcons={allIcons}
         />
       ))}
     </StyledProjects>

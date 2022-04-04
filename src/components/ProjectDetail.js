@@ -10,7 +10,7 @@ import styled from "styled-components";
 import { detailPopUp } from "../styles/animations";
 
 //icons
-import { MdWeb } from "react-icons/md";
+//import { MdWeb } from "react-icons/md";
 import Icon from "./Icon";
 //import { AiOutlineCalendar } from "react-icons/ai";
 
@@ -27,7 +27,7 @@ import { v4 as uuidv4 } from "uuid";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-const ProjectDetails = ({ project, projectClose }) => {
+const ProjectDetails = ({ project, projectClose, allIcons }) => {
   let [imageArray, setImageArray] = useState([]);
   //let [mainImage, setMainImage] = useState({});
 
@@ -58,7 +58,14 @@ const ProjectDetails = ({ project, projectClose }) => {
         <CloseButton closeFunction={projectClose} />
 
         <div className="title-header">
-          <MdWeb className="title-icon" />
+          {/* <MdWeb className="title-icon" /> */}
+          <Icon
+            icon="MdWeb"
+            color="#313131"
+            size="50px"
+            className="title-icon"
+            allIcons={allIcons}
+          />
           <h1>Project details</h1>
         </div>
 
@@ -71,6 +78,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                 color="#313131"
                 size="14pt"
                 title="Screenshots"
+                allIcons={allIcons}
               />
             </legend>
             <h1>
@@ -95,6 +103,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                       color="gold"
                       size="25px"
                       title="Featured project"
+                      allIcons={allIcons}
                     />
                   ) : (
                     <Icon
@@ -102,6 +111,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                       color="#313131"
                       size="25px"
                       title="Not featured project"
+                      allIcons={allIcons}
                     />
                   )}
                 </div>
@@ -117,6 +127,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                     color="black"
                     size="50px"
                     title="Github link"
+                    allIcons={allIcons}
                   />
                 </a>
               </div>
@@ -129,6 +140,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                     color="black"
                     size="50px"
                     title="Live site link"
+                    allIcons={allIcons}
                   />
                 </a>
               </div>
@@ -141,6 +153,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                     color="#ff0000"
                     size="50px"
                     title="Site walkthrough link"
+                    allIcons={allIcons}
                   />
                 </a>
               </div>
@@ -155,6 +168,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                 color="#313131"
                 size="14pt"
                 title="Screenshots"
+                allIcons={allIcons}
               />
             </legend>
 
@@ -175,6 +189,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                 color="#65617d"
                 size="300px"
                 title="project"
+                allIcons={allIcons}
               />
             )}
             {/* {project.screenshots[0]?.fileName ? (
@@ -202,6 +217,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                   color="#313131"
                   size="14pt"
                   title="Features icon"
+                  allIcons={allIcons}
                 />
               </legend>
               {project?.features?.map((feature) => (
@@ -211,6 +227,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                     color="#494949"
                     size="25px"
                     title="Highlights icon"
+                    allIcons={allIcons}
                   />
                   <h4>{feature}</h4>
                 </div>
@@ -227,6 +244,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                   color="#313131"
                   size="14pt"
                   title="Highlights icon"
+                  allIcons={allIcons}
                 />
               </legend>
               {project?.highlights?.map((highlight) => (
@@ -236,6 +254,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                     color="#313131"
                     size="25px"
                     title="Highlights icon"
+                    allIcons={allIcons}
                   />
                   <h4>{highlight}</h4>
                 </div>
@@ -252,6 +271,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                   color="#313131"
                   size="14pt"
                   title="package icon"
+                  allIcons={allIcons}
                 />
               </legend>
               <StyledIcons>
@@ -268,6 +288,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                       icon={tech.icon}
                       color={tech.color}
                       size="75px"
+                      allIcons={allIcons}
                     />
                   </a>
                 ))}
@@ -284,6 +305,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                   color="#313131"
                   size="14pt"
                   title="package icon"
+                  allIcons={allIcons}
                 />
               </legend>
               <StyledIcons>
@@ -300,6 +322,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                       icon={pack.icon}
                       color={pack.color}
                       size="75px"
+                      allIcons={allIcons}
                     />
                   </a>
                 ))}
@@ -316,6 +339,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                   color="#313131"
                   size="14pt"
                   title="library icon"
+                  allIcons={allIcons}
                 />
               </legend>
 
@@ -333,6 +357,7 @@ const ProjectDetails = ({ project, projectClose }) => {
                       color={library.color}
                       size="75px"
                       title={`${library.name} library`}
+                      allIcons={allIcons}
                     />
                   </a>
                 ))}

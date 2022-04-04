@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { detailPopUp } from "../styles/animations";
 import Loader from "../components/Loader";
 import Projects from "../components/Projects";
-import { MdWeb } from "react-icons/md";
+//import { MdWeb } from "react-icons/md";
 //import { FaStar } from "react-icons/fa";
 //import StyledLine from "../styles/styledLine";
 //import Select, { components } from "react-select";
@@ -35,6 +35,7 @@ const PortfolioExplorer = ({
   portfolio = false,
   explorer = false,
   setShowFull,
+  allIcons,
 }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -163,13 +164,14 @@ const PortfolioExplorer = ({
       >
         <CloseButton closeFunction={projectClose} />
         <div className="title-header">
-          <MdWeb className="title-icon" />
-          {/* <Icon
+          {/* <MdWeb className="title-icon" /> */}
+          <Icon
             icon="MdWeb"
             color="#313131"
             size="50px"
             className="title-icon"
-          /> */}
+            allIcons={allIcons}
+          />
           <h1>Explore Projects</h1>
         </div>
 
@@ -186,7 +188,8 @@ const PortfolioExplorer = ({
                     icon="FiFilter"
                     color="#313131"
                     size="30px"
-                    className="titleIcon"
+                    className="title-icon"
+                    allIcons={allIcons}
                   />
                   <div className="filter">
                     <label htmlFor="type">Type:</label>
@@ -271,6 +274,7 @@ const PortfolioExplorer = ({
                     projects={filterProjects()}
                     explorer={true}
                     showStar={true}
+                    allIcons={allIcons}
                   />
                 ) : (
                   <h1 className="noresult">No projects to show.</h1>

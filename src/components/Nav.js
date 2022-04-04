@@ -12,6 +12,7 @@ const Nav = ({
   educationInView,
   experienceInView,
   contactInView,
+  allIcons,
 }) => {
   //showDropMenu manages state of mobile dropdown menu
   const [showDropMenu, setShowMenu] = useState(false);
@@ -169,6 +170,7 @@ const Nav = ({
           className="toggle-button"
           func={setShowMenu}
           showDropMenu={showDropMenu}
+          allIcons={allIcons}
         />
       ) : (
         <NavbarIcon
@@ -179,6 +181,7 @@ const Nav = ({
           className="toggle-button"
           func={setShowMenu}
           showDropMenu={showDropMenu}
+          allIcons={allIcons}
         />
       )}
     </StyledNav>

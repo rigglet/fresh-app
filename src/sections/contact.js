@@ -34,7 +34,7 @@ import Icon from "../components/Icon";
 import Plane from "../img/plane";
 import Trail from "../img/trail";
 
-const Contact = ({ contactRef, contactControls, showMenu }) => {
+const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -92,13 +92,14 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
       });
   };
 
-  const CloseButton = ({ closeToast }) => (
+  const CloseButton = ({ closeToast, allIcons }) => (
     <Icon
       icon="FaWindowClose"
       color="#689ed0"
       size=""
       title="Close message"
       onClick={closeToast}
+      allIcons={allIcons}
     />
   );
 
@@ -129,7 +130,7 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
       <motion.div
         initial="initial"
         variants={slideDown}
-        animate={contactControls}
+        //animate={contactControls}
         className="section-header"
       >
         <div className="section-title-content">
@@ -138,6 +139,7 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
             size="30px"
             color="whitesmoke"
             title="Contact icon"
+            allIcons={allIcons}
           />
           <h1 className="section-heading heading-light">Contact me</h1>
         </div>
@@ -215,8 +217,8 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
         <div className="contact-images">
           <motion.div
             className="trail"
-            initial="initial"
             variants={trailVariants}
+            initial="initial"
             animate={contactControls}
           >
             <Trail />
@@ -249,6 +251,7 @@ const Contact = ({ contactRef, contactControls, showMenu }) => {
               size="50px"
               color="whitesmoke"
               bgcolor="var(--highlight-dark)"
+              allIcons={allIcons}
             />
           </motion.div>
         </div>

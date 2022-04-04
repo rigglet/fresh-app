@@ -19,7 +19,7 @@ import Icon from "../components/Icon";
 import { getCollection } from "../api/api";
 import { buttonVariants } from "../styles/animations";
 
-const Portfolio = ({ portfolioRef, portfolioControls }) => {
+const Portfolio = ({ portfolioRef, portfolioControls, allIcons }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showFull, setShowFull] = useState(false);
@@ -60,6 +60,7 @@ const Portfolio = ({ portfolioRef, portfolioControls }) => {
             size="30px"
             color="whitesmoke"
             title="Projects icon"
+            allIcons={allIcons}
           />
           <h1 className="section-heading heading-light">Featured Projects</h1>
         </div>
@@ -78,6 +79,7 @@ const Portfolio = ({ portfolioRef, portfolioControls }) => {
                   projects={filteredProjects}
                   portfolio={true}
                   showStar={false}
+                  allIcons={allIcons}
                 />
               ) : (
                 <h1 className="noresult">No projects to show.</h1>
@@ -98,7 +100,11 @@ const Portfolio = ({ portfolioRef, portfolioControls }) => {
           </>
         )}
         {showFull && (
-          <PortfolioExplorer explorer={true} setShowFull={setShowFull} />
+          <PortfolioExplorer
+            explorer={true}
+            setShowFull={setShowFull}
+            allIcons={allIcons}
+          />
         )}
       </div>
     </PortfolioSection>

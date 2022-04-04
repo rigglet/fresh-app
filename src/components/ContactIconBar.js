@@ -23,7 +23,7 @@ import { getCollection } from "../api/api";
  * @param {number} n The power, must be a natural number.
  * @return {number} x raised to the n-th power.
  */
-const ContactIconBar = ({ size, color, bgcolor }) => {
+const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
   const [links, setLinks] = useState([]);
 
   useEffect(() => {
@@ -43,7 +43,12 @@ const ContactIconBar = ({ size, color, bgcolor }) => {
     <StyledBar bgcolor={bgcolor}>
       {links.map((link) => (
         <a key={uuidv4()} target="_blank" rel="noreferrer" href={link.address}>
-          <Icon icon={link.icon} color={color} size={size} />
+          <Icon
+            icon={link.icon}
+            color={color}
+            size={size}
+            allIcons={allIcons}
+          />
         </a>
       ))}
     </StyledBar>
