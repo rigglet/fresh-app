@@ -63,7 +63,6 @@ const Projects = ({
           showStar={showStar}
           allIcons={allIcons}
         />
-        // <h1>PC</h1>
       ))}
     </StyledProjects>
   );

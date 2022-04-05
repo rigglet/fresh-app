@@ -119,8 +119,6 @@ function App() {
                     <Skills
                       skillsRef={skillsRef}
                       skillsControls={skillsControls}
-                      //technologies={technologies}
-                      //tools={tools}
                       allIcons={allIcons}
                     />
                   </Container>
