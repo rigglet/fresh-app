@@ -19,20 +19,25 @@ import Icon from "../components/Icon";
 import { getCollection } from "../api/api";
 import { buttonVariants } from "../styles/animations";
 
-const Portfolio = ({ portfolioRef, portfolioControls, allIcons }) => {
-  const [projects, setProjects] = useState([]);
+const Portfolio = ({
+  portfolioRef,
+  portfolioControls,
+  //portfolioInView,
+  allIcons,
+}) => {
   const [loading, setLoading] = useState(true);
   const [showFull, setShowFull] = useState(false);
+  const [projects, setProjects] = useState([]);
+
+  async function getProjects() {
+    return await getCollection("projects");
+  }
 
   useEffect(() => {
-    async function getProjects() {
-      return await getCollection("projects");
-    }
-
     getProjects()
       .then((results) => {
         if (results.status === 200) {
-          setProjects(results.data);
+          setProjects(() => results.data);
         }
       })
       .then(() => {
@@ -43,7 +48,7 @@ const Portfolio = ({ portfolioRef, portfolioControls, allIcons }) => {
       });
   }, []);
 
-  const filteredProjects = projects?.filter((project) => {
+  const featuredProjects = projects.filter((project) => {
     return project.featured === true && project.included === true;
   });
 
@@ -74,9 +79,9 @@ const Portfolio = ({ portfolioRef, portfolioControls, allIcons }) => {
         ) : (
           <>
             <div className="projects">
-              {filteredProjects.length > 0 ? (
+              {featuredProjects.length > 0 ? (
                 <Projects
-                  projects={filteredProjects}
+                  projects={featuredProjects}
                   portfolio={true}
                   showStar={false}
                   allIcons={allIcons}

@@ -47,6 +47,8 @@ const ProjectDetails = ({ project, projectClose, allIcons }) => {
     // );
   }, [project.screenshots]);
 
+  //console.log(mainImage);
+
   return (
     <StyledOuterContainer>
       <StyledInnerContainer

@@ -9,28 +9,21 @@ import Icon from "../components/Icon";
 import { selection, slideDown, bounceUp } from "../styles/animations";
 import { getCollection } from "../api/api";
 
-const Skills = ({
-  skillsRef,
-  skillsControls,
-  //technologies,
-  //tools,
-  allIcons,
-}) => {
+const Skills = ({ skillsRef, skillsControls, allIcons }) => {
   const [technologies, setTechnologies] = useState([]);
   const [tools, setTools] = useState([]);
 
-  useEffect(() => {
-    async function getTechnologies() {
-      return await getCollection("technologies");
-    }
-    async function getTools() {
-      return await getCollection("tools");
-    }
+  async function getTechnologies() {
+    return await getCollection("technologies");
+  }
+  async function getTools() {
+    return await getCollection("tools");
+  }
 
+  useEffect(() => {
     getTechnologies()
       .then((results) => {
         if (results.status === 200) {
-          //console.log(results.status);
           setTechnologies(results.data);
         }
       })

@@ -28,8 +28,8 @@ const Projects = ({
 
   const handleProjectClick = (project) => {
     document.body.style.overflowY = "hidden";
-    setShowProjectDetails(true);
     setCurrentProject(project);
+    setShowProjectDetails(true);
   };
 
   // const handleImageChange = (image) => {
@@ -63,6 +63,7 @@ const Projects = ({
           showStar={showStar}
           allIcons={allIcons}
         />
+        // <h1>PC</h1>
       ))}
     </StyledProjects>
   );

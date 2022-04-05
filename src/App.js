@@ -34,11 +34,10 @@ import Skills from "./sections/skills";
 
 import { useRef } from "react";
 import { AnimatePresence } from "framer-motion";
-import Nav from "./components/Nav";
 import { Routes, Route } from "react-router-dom";
+import Nav from "./components/Nav";
 import useScroll from "./components/useScroll";
 //import useHideNav from "./components/useHideNav";
-//import { getCollection } from "./api/api";
 
 function App() {
   const [homeRef, homeControls, homeInView] = useScroll();
@@ -50,8 +49,6 @@ function App() {
   const [contactRef, contactControls, contactInView] = useScroll();
 
   const elementRef = useRef();
-  // const [technologies, setTechnologies] = useState([]);
-  // const [tools, setTools] = useState([]);
 
   //icons
   let allIcons = {
@@ -77,36 +74,6 @@ function App() {
     ...siIcons,
     ...vscIcons,
   };
-
-  // useEffect(() => {
-  //   async function getTechnologies() {
-  //     return await getCollection("technologies");
-  //   }
-  //   async function getTools() {
-  //     return await getCollection("tools");
-  //   }
-
-  //   getTechnologies()
-  //     .then((results) => {
-  //       if (results.status === 200) {
-  //         //console.log(results.status);
-  //         setTechnologies(results.data);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log("Skills: get Technologies error: ", err);
-  //     });
-
-  //   getTools()
-  //     .then((results) => {
-  //       if (results.status === 200) {
-  //         setTools(results.data);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   return (
     <div className="app" ref={elementRef}>
@@ -142,6 +109,7 @@ function App() {
                     <Portfolio
                       portfolioRef={portfolioRef}
                       portfolioControls={portfolioControls}
+                      portfolioInView={portfolioInView}
                       allIcons={allIcons}
                     />
                   </Container>

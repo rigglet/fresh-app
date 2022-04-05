@@ -21,7 +21,7 @@ const ProjectCard = ({
   showStar = false,
   allIcons,
 }) => {
-  let [mainImage, setMainImage] = useState({});
+  const [mainImage, setMainImage] = useState({});
 
   useEffect(() => {
     setMainImage(
@@ -30,6 +30,8 @@ const ProjectCard = ({
       })[0]
     );
   }, [project.mainImage, project.screenshots]);
+
+  //console.log({ mainImage });
 
   return (
     <StyledCard>
@@ -103,7 +105,7 @@ const ProjectCard = ({
         ) : (
           <Icon icon="BsImageFill" color="#65617d" size="50%" title="project" />
         )} */}
-        {mainImage ? (
+        {mainImage?.fileName ? (
           <img
             src={`${serverBaseURL()}/images/${mainImage?.fileName}`}
             alt="project"
