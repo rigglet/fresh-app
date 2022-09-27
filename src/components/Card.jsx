@@ -12,63 +12,58 @@ const Card = ({ data }) => {
         </div>
 
         <div className="card-text">
-          <h4>{data.name}</h4>
-            {
-                data.qualifications.map(qualification => {
-                    return (
-                        <div className="qualification-section">
-                          <h4>{qualification.type}</h4>
-                            
-                            {qualification.subjects.map(subject => {
-                                return (<>
-                                  <div className="subject">
-                                    <p className="subject-name">{subject.name}</p>
-                                    <p className="subject-result">{subject.result}</p>
-                                  </div>
-                                </>)    
-                            })}
-                        </div>
-                    )
-                  })
-                }
-                <h4>Overview of curriculum</h4>
-                {data.content?.map(item => {
-                  return <p>{item}</p>
-                })}
-          
-          </div>
+          <h4 className="institution-name">{data.name}</h4>
+            
+          {
+          data.qualifications.map(qualification => {
+              return (
+                  <div className="qualification-section">
+                    <h4 className="qualification-type">{qualification.type}</h4>
+                      
+                      {qualification.subjects.map(subject => {
+                          return (<>
+                            <div className="subject">
+                              <p className="subject-name">{subject.name}</p>
+                              <p className="subject-result">{subject.result}</p>
+                            </div>
+                          </>)    
+                      })}
+                  </div>
+              )
+            })
+          }
+                
+          {data.content.length > 0 && (
+            <section className="curriculum">
+              <h4>Overview of curriculum</h4>
+              {data.content?.map(item => {
+                return <p>{item}</p>
+              })}
+            </section>
+          )}
+        </div>
           
         </StyledCard>
     )
  }
 
 const StyledCard = styled(motion.div)`
-    display: grid;
-    grid-template-columns: 350px;
-    grid-template-rows: auto auto;
-    grid-template-areas: "image" "text";
-    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 350px;
     background: #f5f5f5;
-    text-align: center;
-    //justify-content: flex-start;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
+    align-items: flex-start;
     border-radius: 15px;
     border: 0.2rem solid #65617d;
     transition: transform 0.3s ease;
+    transform: rotateY(-5deg);
     
-    //cursor: pointer;
-    //box-shadow: 5px 5px 15px rgba(101, 97, 125, 20);
-    /* color: #f5f5f5;
-    border-radius: 10px;
-    background: transparent; */
-    /* &:hover {
+    &:hover {
       transition: transform 0.3s ease;
-      transform: scale(1.05);
-    } */
+      transform: rotateZ(0deg);
+    }
     
     .image-container{
-      grid-area: image;
       height: 200px;
       width: 100%;
       position: relative;
@@ -79,28 +74,25 @@ const StyledCard = styled(motion.div)`
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-bottom: 0.25rem solid #65617d;
       }
 
       .stat {
         position: absolute;
         bottom: 0px;
-        right: 1rem;
+        right: 0rem;
         transform: translateY(50%);
         display: flex;
         align-items: center;
         justify-content: center;
-        //background-color: #65617d;
-        background-color: #689ed0;
-        background-color: var(--color-light-background);
-        color: #1c3b57;
         padding: 0.5rem;
         border-radius: 50%;
-        border: 3px solid #65617d;
         width: 45px;
         height: 45px; 
-        font-weight: normal;
-        font-size: 1.3rem;
+        font-size: 1rem;
+        background-color: hsl(248.57142857142858, 12.612612612612612%, 30%);
+        color: var(--color-light-text);
+        border: 6px solid var(--color-light-text);
+        font-weight: lighter;
       }
       
       .institution-type {        
@@ -111,88 +103,49 @@ const StyledCard = styled(motion.div)`
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: #689ed0;
-        background-color: var(--color-light-background);
-        color: #1c3b57;
-        padding: 0.5rem;
+        padding: 0.25rem 0.5rem;
         border-radius: 25px;
-        border: 3px solid #65617d;
         width: auto;
-        height: 45px; 
-        font-weight: normal;
+        height: auto; 
+        font-variant: all-small-caps;
         font-size: 1.3rem;
-        font-size: 1rem;
+        vertical-align: center;
+        background-color: hsl(248.57142857142858, 12.612612612612612%, 30%);
+        color: var(--color-light-text);
+        border: 6px solid var(--color-light-text);
+        font-weight: lighter;
       }
     }
 
     .card-text {
-      grid-area: text;
-      align-self: flex-start;
-      height: 100%;
+      width: 100%;
+      margin-top: 1rem;
       color: #1c3b57;
       padding: 1rem;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.5rem;
       
+      .institution-name{
+        background-color: hsl(248.57142857142858, 12.612612612612612%, 43.529411764705884%);
+        background-color: hsl(248.57142857142858, 12.612612612612612%, 30%);
+        color: var(--color-light-text);
+        font-weight: lighter;
+        text-align: center;
+      };
       .qualification-section {
-        padding: 0.5rem;
+        .qualification-type {
+          font-variant: all-small-caps;
+          font-size: 1.3rem;
+        }
       }
     }
-    
     .subject{
       width: 100%;
       display: flex;
       justify-content: space-between;
-      .subject-name{}
-      .subject-result{}
     }
-    /* 
-    .card-text p {
-      color: grey;
-      font-size: 15px;
-      font-weight: 300;
-    }
-    .card-text h2 {
-      margin-top: 0px;
-      font-size: 22px;
-    }
-    .card-stats {
-      grid-area: stats;
-      display: flex;
-      justify-content: center;
-      border-bottom-left-radius: 15px;
-      border-bottom-right-radius: 15px;
-      background: #65617d;
-    }
-    
-    
-    .certificate {
-      min-width: 25vw;
-      height: auto;
-      cursor: pointer;
-      transition: transform 0.6s ease;
-      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
-      &:hover {
-        transition: transform 0.3s ease;
-        transform: scale(1.15);
-    }
-    .info {
-        padding: 1rem;
-    }
-    .stats {
-        border: 1px solid #f5f5f5;
-        border-radius: 0px 0px 10px 10px;
-          width: 100%;
-          height: 7vh;
-        }
-        .stats:nth-of-type(1) {
-          background: #689ed0;
-        }
-        .stats:nth-of-type(2) {
-            background: #65617d;
-        }
-        .stats:nth-of-type(3) {
-          background: #1c3b57;
-        }
-    } */
 `;
     
 export default Card;
