@@ -248,7 +248,7 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
             animate={contactControls}
           >
             <ContactIconBar
-              size="50px"
+              size="40px"
               color="whitesmoke"
               bgcolor="var(--highlight-dark)"
               allIcons={allIcons}
@@ -303,6 +303,7 @@ const ContactInfo = styled(motion.div)`
     flex-grow: 1;
     justify-content: space-between;
     background: #1f2525;
+    background: #2b2b37;
     padding: 2rem;
     border-radius: 10px;
     gap: 1rem;

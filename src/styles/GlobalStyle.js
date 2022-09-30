@@ -32,6 +32,15 @@ html{
 
   --highlight-dark: #1f2525;
   
+  --gradient-ltr-45: linear-gradient(
+    45deg,
+    #1c3b57 0%,
+    #65617d 33%,
+    #689ed0 66%,
+    #c6c6c6 100%
+    );
+    //#f5f5f5 100%
+    
   --gradient-ltr: linear-gradient(
     90deg,
     #1c3b57 0%,

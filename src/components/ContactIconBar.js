@@ -1,10 +1,3 @@
-/**
- * Returns x raised to the n-th power.
- *
- * @param {number} x The number to raise.
- * @param {number} n The power, must be a natural number.
- * @return {number} x raised to the n-th power.
- */
 
 import { useState, useEffect } from "react";
 //framer motion and styled components
@@ -16,13 +9,6 @@ import Icon from "./Icon";
 //data
 import { getCollection } from "../api/api";
 
-/**
- * Returns x raised to the n-th power.
- *
- * @param {number} x The number to raise.
- * @param {number} n The power, must be a natural number.
- * @return {number} x raised to the n-th power.
- */
 const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
   const [links, setLinks] = useState([]);
 
@@ -34,7 +20,7 @@ const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
     getLinks().then((results) => {
       if (results.status === 200) {
         setLinks(results.data);
-        //console.log(results.data);
+        console.log(results.data);
       }
     });
   }, []);
@@ -42,14 +28,18 @@ const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
   return (
     <StyledBar bgcolor={bgcolor}>
       {links.map((link) => (
-        <a key={uuidv4()} target="_blank" rel="noreferrer" href={link.address}>
-          <Icon
-            icon={link.icon}
-            color={color}
-            size={size}
-            allIcons={allIcons}
-          />
-        </a>
+        <div className="contact-item">
+          <a key={uuidv4()} target="_blank" rel="noreferrer" href={link.address}>
+            <Icon
+              icon={link.icon}
+              color={color}
+              size={size}
+              allIcons={allIcons}
+              />
+            <h6>{link.name}</h6>
+            <p className="address">{link.address}</p>
+          </a>
+        </div>
       ))}
     </StyledBar>
   );
@@ -57,16 +47,43 @@ const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
 
 const StyledBar = styled(motion.div)`
   display: flex;
-  align-items: center;
-  column-gap: 1rem;
-  border-radius: 10px;
+  justify-content: flex-end;
+  column-gap: 2rem;
   background: ${({ bgcolor }) => bgcolor};
-  padding: 0.5rem;
+  background: #111111;
+  background: transparent;
+  //padding: 0.5rem;
+  
+  .contact-item {
+    background: ${({ bgcolor }) => bgcolor};
+    background: #2b2b37;
+    color: var(--color-light-text);
+    padding: 1.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+    flex-grow: 1;
+    
+    &:hover {
+      background: var(--gradient-ltr-45);
+    }
+    
+    a {
+      display: flex;
+      flex-direction: column;
+      align-items: space-between; 
+      row-gap: 0.75rem;
+      text-decoration: none;
+      color: var(--color-light-text);
+    }
+    h6 {
+      font-size: 1.2rem;
+    }
+    p {
+      font-size: 0.75rem;
+    }
+    
+    
 
-  a {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
   }
 `;
 
