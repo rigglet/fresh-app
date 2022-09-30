@@ -17,6 +17,13 @@ import Icon from "../components/Icon";
 // } from "../styles/animations";
 
 const Experience = ({ experienceRef, experienceControls, allIcons }) => {
+  const iconStyle = { background: "#689ed0" };
+  const contentStyle = {
+    background: "#2b2b37",
+    color: "var(--color-light-text)",
+  };
+  const contentArrowStyle = {borderRight: "20px solid #2b2b37"};
+
   return (
     <ExperienceSection
       ref={experienceRef}
@@ -55,19 +62,14 @@ const Experience = ({ experienceRef, experienceControls, allIcons }) => {
         >
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "#c6c6c6",
-              color: "#313131",
-            }}
-            contentArrowStyle={{
-              borderRight: "20px solid  #c6c6c6",
-            }}
+            contentStyle={contentStyle}
+            contentArrowStyle={contentArrowStyle}
             date="2006 - 2007"
-            iconStyle={{ background: "#689ed0" }}
+            iconStyle={iconStyle}
             icon={
               <Icon
                 icon="MdWork"
-                color="#313131"
+                color="#2b2b37"
                 size="25px"
                 title="work icon"
                 allIcons={allIcons}
@@ -83,19 +85,14 @@ const Experience = ({ experienceRef, experienceControls, allIcons }) => {
 
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
-            contentStyle={{
-              background: "#c6c6c6",
-              color: "#313131",
-            }}
-            contentArrowStyle={{
-              borderRight: "20px solid #c6c6c6",
-            }}
+            contentStyle={contentStyle}
+            contentArrowStyle={contentArrowStyle}
             date="2017 - 2020"
-            iconStyle={{ background: "#689ed0", color: "#689ed0" }}
+            iconStyle={iconStyle}
             icon={
               <Icon
                 icon="MdWork"
-                color="#313131"
+                color="#2b2b37"
                 size="25px"
                 title="work icon"
                 allIcons={allIcons}
