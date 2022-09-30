@@ -24,6 +24,7 @@ const Portfolio = ({
   portfolioControls,
   //portfolioInView,
   allIcons,
+  showNav
 }) => {
   const [loading, setLoading] = useState(true);
   const [showFull, setShowFull] = useState(false);
@@ -57,7 +58,7 @@ const Portfolio = ({
   };
 
   return (
-    <PortfolioSection ref={portfolioRef}>
+    <PortfolioSection ref={portfolioRef} showNav={showNav}>
       <div className="section-header">
         <div className="section-title-content">
           <Icon
@@ -125,6 +126,7 @@ const PortfolioSection = styled(motion.div)`
   //added to center styledLine
 
   padding: 4rem 4rem 4rem 4rem;
+  padding: ${({ showNav }) => (showNav ? "4rem" : "4rem")};
   min-height: 93vh;
   height: auto;
   width: 100%;

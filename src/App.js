@@ -32,12 +32,14 @@ import Contact from "./sections/contact";
 import Portfolio from "./sections/portfolio";
 import Skills from "./sections/skills";
 
-import { useRef } from "react";
+import { useCallback, useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import useScroll from "./components/useScroll";
 //import useHideNav from "./components/useHideNav";
+import { throttle, debounce } from "./utility/utility";
+import { useState } from "react";
 
 function App() {
   const [homeRef, homeControls, homeInView] = useScroll();
@@ -47,9 +49,7 @@ function App() {
   const [educationRef, educationControls, educationInView] = useScroll();
   const [experienceRef, experienceControls, experienceInView] = useScroll();
   const [contactRef, contactControls, contactInView] = useScroll();
-
-  const elementRef = useRef();
-
+  
   //icons
   let allIcons = {
     ...aiIcons,
@@ -74,9 +74,27 @@ function App() {
     ...siIcons,
     ...vscIcons,
   };
+  
+  const elementRef = useRef();
+  const [showNav, setShowNav] = useState(true);
+  const lastPositionRef = useRef(0);
+  let currentPosition = 0;
+    
+  const updateMenuStatus = () => {
+    currentPosition = elementRef?.current?.scrollTop;
+    //currentPosition < lastPositionRef.current ? console.log("show menu") : console.log("hide menu");
+    currentPosition < lastPositionRef.current ? setShowNav(()=>true) : setShowNav(()=>false);
+    lastPositionRef.current = currentPosition;
+    //console.log(lastPositionRef.current, " => ", currentPosition);
+  }
+  
+  //console.log(showNav);
+  
+  const handleScroll = useCallback(throttle(updateMenuStatus, 1500), []);
+  //const handleScroll = useCallback(throttle(updateMenuStatus, 5000), []);
 
   return (
-    <div className="app" ref={elementRef}>
+    <div className="app" onScroll={handleScroll} ref={elementRef}>
       <AnimatePresence initial={false} exitBeforeEnter>
         <Routes>
           <Route
@@ -93,15 +111,16 @@ function App() {
                   experienceInView={experienceInView}
                   contactInView={contactInView}
                   allIcons={allIcons}
+                  showNav={showNav}
                 />
                 <Section id="home" full>
                   <Container full dark>
-                    <Home homeRef={homeRef} homeControls={homeControls} />
+                    <Home homeRef={homeRef} homeControls={homeControls} showNav={showNav}/>
                   </Container>
                 </Section>
                 <Section id="about" full={true}>
                   <Container light={true}>
-                    <About aboutRef={aboutRef} aboutControls={aboutControls} />
+                    <About aboutRef={aboutRef} aboutControls={aboutControls} showNav={showNav}/>
                   </Container>
                 </Section>
                 <Section id="portfolio">
@@ -111,6 +130,7 @@ function App() {
                       portfolioControls={portfolioControls}
                       portfolioInView={portfolioInView}
                       allIcons={allIcons}
+                      showNav={showNav}
                     />
                   </Container>
                 </Section>
@@ -120,6 +140,7 @@ function App() {
                       skillsRef={skillsRef}
                       skillsControls={skillsControls}
                       allIcons={allIcons}
+                      showNav={showNav}
                     />
                   </Container>
                 </Section>
@@ -129,6 +150,7 @@ function App() {
                       educationRef={educationRef}
                       educationControls={educationControls}
                       allIcons={allIcons}
+                      showNav={showNav}
                     />
                   </Container>
                 </Section>
@@ -138,6 +160,7 @@ function App() {
                       experienceRef={experienceRef}
                       experienceControls={experienceControls}
                       allIcons={allIcons}
+                      showNav={showNav}
                     />
                   </Container>
                 </Section>
@@ -147,6 +170,7 @@ function App() {
                       contactRef={contactRef}
                       contactControls={contactControls}
                       allIcons={allIcons}
+                      showNav={showNav}
                     />
                   </Container>
                 </Section>

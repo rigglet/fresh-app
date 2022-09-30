@@ -41,10 +41,10 @@ const StyledSection = styled(motion.section)`
   //flex-direction: column;
   align-items: center;
   justify-content: center;
-
   width: "100vw";
   height: ${({ full, half }) => (full ? "100vh" : half ? "50vh" : "auto")};
   min-height: 100vh;
+  //scroll-snap-align: center;
 
   //#### RESPONSIVE SECTION ####
   //320px — 480px: Mobile devices

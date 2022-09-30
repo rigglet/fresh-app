@@ -52,6 +52,7 @@ html{
     
   }
 
+
   .app{
   //scroll-padding: 200px;
   //scroll-snap-type: y proximity;

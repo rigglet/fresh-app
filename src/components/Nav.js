@@ -13,17 +13,22 @@ const Nav = ({
   experienceInView,
   contactInView,
   allIcons,
+  showNav
 }) => {
+  
+  console.log("showNav => ", showNav);
+
   //showDropMenu manages state of mobile dropdown menu
   const [showDropMenu, setShowMenu] = useState(false);
-
+  
   return (
-    <StyledNav>
+    
+    <StyledNav className={showNav ? "showNav" : "hideNav"} showNav={showNav}>
       <h1 className="logo">Neil Rigg</h1>
-
+      
       <motion.div className={showDropMenu ? "menu" : "menu mob-menu-hide"}>
-        <HashLink
-          className="link"
+      <HashLink
+      className="link"
           smooth
           to="/#home"
           scroll={(el) =>
@@ -42,12 +47,12 @@ const Nav = ({
               width: homeInView ? "100%" : "0%",
             }}
             transition={{ duration: 0.75 }}
-          />
+            />
         </HashLink>
         <HashLink
-          className="link"
-          //smooth
-          scroll={(el) =>
+        className="link"
+        //smooth
+        scroll={(el) =>
             el.scrollIntoView({ behavior: "smooth", block: "start" })
           }
           to="/#about"
@@ -62,7 +67,7 @@ const Nav = ({
               width: aboutInView ? "100%" : "0%",
             }}
             transition={{ duration: 0.75 }}
-          />
+            />
         </HashLink>
         <HashLink
           className="link"
@@ -100,7 +105,7 @@ const Nav = ({
               width: skillsInView ? "100%" : "0%",
             }}
             transition={{ duration: 0.75 }}
-          />
+            />
         </HashLink>
         <HashLink
           className="link"
@@ -109,7 +114,7 @@ const Nav = ({
           }
           to="/#education"
           onClick={() => setShowMenu(false)}
-        >
+          >
           <h1>Education</h1>
           <NavLine
             height="4px"
@@ -119,7 +124,7 @@ const Nav = ({
               width: educationInView ? "100%" : "0%",
             }}
             transition={{ duration: 0.75 }}
-          />
+            />
         </HashLink>
         <HashLink
           className="link"
@@ -128,7 +133,7 @@ const Nav = ({
           }
           to="/#experience"
           onClick={() => setShowMenu(false)}
-        >
+          >
           <h1>Experience</h1>
           <NavLine
             height="4px"
@@ -172,8 +177,8 @@ const Nav = ({
           showDropMenu={showDropMenu}
           allIcons={allIcons}
         />
-      ) : (
-        <NavbarIcon
+        ) : (
+          <NavbarIcon
           icon="FiMenu"
           color="white"
           size="30px"
@@ -182,30 +187,39 @@ const Nav = ({
           func={setShowMenu}
           showDropMenu={showDropMenu}
           allIcons={allIcons}
-        />
-      )}
-    </StyledNav>
-  );
+          />
+          )}
+          </StyledNav>
+          );
 };
 
 const StyledNav = styled(motion.nav)`
-  position: fixed;
-  //position: ${({ showMenu }) => (showMenu ? "fixed" : "static")};
-  top: 0;
-  left: 0;
-  z-index: 100;
+  display: flex;
+  //display: ${({ showNav }) => (showNav ? "flex" : "none")};
   width: 100vw;
   height: 10vh;
   height: auto;
-  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: height 0.3s ease;
   align-items: center;
-  justify-content: space-between;
   justify-content: space-between;
   background-color: var(--color-nav-background);
   border-bottom: solid 2px var(--color-nav-hover);
+  transition: all 1s ease-in-out;
+  transform: ${({ showNav }) => (showNav ? "translateY(0vh)" : "translateY(-9vh)")};
   //flex-wrap: wrap;
-  //transition: all 1s ease-in-out;
   //border: 1px solid red;
+
+  /* .showNav {
+    background-color: red !important;  
+  }
+  .hideNav {
+    background-color: green !important;  
+    transform: translateY(-9vh) !important;
+  } */
 
   .toggle-button {
     display: none;

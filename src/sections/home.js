@@ -12,9 +12,10 @@ import {
   imageVariants,
 } from "../styles/animations";
 
-const Home = ({ homeRef, homeControls }) => {
+const Home = ({ homeRef, homeControls, showNav }) => {
+  
   return (
-    <HomeSection ref={homeRef}>
+    <HomeSection ref={homeRef} showNav={showNav}>
       <div className="info">
         <motion.div
           className="home-header"
@@ -77,6 +78,7 @@ const HomeSection = styled(motion.div)`
   min-height: 100vh;
   width: 100%;
   padding: 6rem 4rem 4rem 4rem;
+  padding: ${({ showNav }) => (showNav ? "6rem 4rem 4rem 4rem" : "4rem")};
   overflow-x: hidden;
 
   .info {
