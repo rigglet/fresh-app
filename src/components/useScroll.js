@@ -11,7 +11,7 @@ export default function useScroll() {
     //triggerOnce: true,
   });
   const controls = useAnimation();
-
+  
   if (view) {
     controls.start("animate");
   } else {

@@ -5,7 +5,8 @@ import StyledLine from "../styles/styledLine";
 import Icon from "../components/Icon";
 //import { fadeInOut } from "../styles/animations";
 import Card from "../components/Card";
-import { cardData } from "../config/data";
+import { cardData } from "../data/data";
+import { v4 as uuidv4 } from 'uuid';
 
 const Education = ({ educationRef, educationControls, allIcons }) => {
 
@@ -36,7 +37,7 @@ const Education = ({ educationRef, educationControls, allIcons }) => {
 
       <div className="content">
         {
-          cardData.map(institution => <Card data={institution}/>)
+          cardData.map(institution => <Card key={uuidv4() } data={institution}/>)
         }
       </div>
     </EducationSection>

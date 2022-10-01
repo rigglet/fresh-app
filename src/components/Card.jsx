@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
+import { v4 as uuidv4 } from 'uuid';
 
 const Card = ({ data }) => {
     //console.log(data);  
@@ -17,16 +18,16 @@ const Card = ({ data }) => {
           {
           data.qualifications.map(qualification => {
               return (
-                  <div className="qualification-section">
+                  <div key={uuidv4()} className="qualification-section">
                     <h4 className="qualification-type">{qualification.type}</h4>
                       
                       {qualification.subjects.map(subject => {
-                          return (<>
-                            <div className="subject">
+                          return (
+                            <div key={uuidv4()} className="subject">
                               <p className="subject-name">{subject.name}</p>
                               <p className="subject-result">{subject.result}</p>
                             </div>
-                          </>)    
+                          )    
                       })}
                   </div>
               )
@@ -37,7 +38,7 @@ const Card = ({ data }) => {
             <section className="curriculum">
               <h4>Overview of curriculum</h4>
               {data.content?.map(item => {
-                return <p>{item}</p>
+                return <p key={uuidv4()}>{item}</p>
               })}
             </section>
           )}
