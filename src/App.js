@@ -38,7 +38,7 @@ import { Routes, Route } from "react-router-dom";
 import Nav from "./components/Nav";
 import useScroll from "./components/useScroll";
 //import useHideNav from "./components/useHideNav";
-import { throttle, debounce } from "./utility/utility";
+import { throttle } from "./utility/utility";
 import { useState } from "react";
 
 function App() {
@@ -89,7 +89,8 @@ function App() {
   }
   
   //console.log(showNav);
-  
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleScroll = useCallback(throttle(updateMenuStatus, 1500), []);
   //const handleScroll = useCallback(throttle(updateMenuStatus, 5000), []);
 

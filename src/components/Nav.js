@@ -16,7 +16,7 @@ const Nav = ({
   showNav
 }) => {
   
-  console.log("showNav => ", showNav);
+  //console.log("showNav => ", showNav);
 
   //showDropMenu manages state of mobile dropdown menu
   const [showDropMenu, setShowMenu] = useState(false);
