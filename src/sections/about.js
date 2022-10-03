@@ -219,6 +219,7 @@ const AboutSection = styled(motion.div)`
           text-align: justify;
           font-size: 1.5rem;
           height: 100%;
+          z-index: 10;
 
           &:first-of-type {
             margin: 1rem 0;
