@@ -301,6 +301,7 @@ const ContactInfo = styled(motion.div)`
     flex-direction: column;
     flex-basis: 40%;
     flex-grow: 1;
+    flex-shrink: 1;
     justify-content: space-between;
     background: #1f2525;
     background: #2b2b37;

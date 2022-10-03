@@ -66,6 +66,14 @@ const EducationSection = styled(motion.div)`
     perspective: 400px;
     //perspective-origin: 350px 0px;
   }
+  
+  //#### RESPONSIVE SECTION ####
+  //320px — 480px: Mobile devices
+  @media screen and (max-width: 1000px) {
+    .content {
+      perspective: none;
+    }
+  }
 `;
 
 export default Education;

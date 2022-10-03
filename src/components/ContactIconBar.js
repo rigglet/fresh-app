@@ -49,6 +49,7 @@ const StyledBar = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
   column-gap: 2rem;
+  flex-wrap: wrap;
   background: ${({ bgcolor }) => bgcolor};
   background: #111111;
   background: transparent;
