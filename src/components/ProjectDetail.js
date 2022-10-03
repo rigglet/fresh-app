@@ -31,6 +31,8 @@ const ProjectDetails = ({ project, projectClose, allIcons }) => {
   let [imageArray, setImageArray] = useState([]);
   //let [mainImage, setMainImage] = useState({});
 
+  //console.log(project);
+  
   useEffect(() => {
     setImageArray(
       project.screenshots?.map((image) => {
@@ -174,17 +176,18 @@ const ProjectDetails = ({ project, projectClose, allIcons }) => {
               />
             </legend>
 
-            {imageArray.length > 0 ? (
+            {imageArray?.length > 0 ? (
               <ImageGallery
                 items={imageArray}
                 showPlayButton={false}
-                //thumbnailPosition={"bottom"}
-                //showIndex={true}
+                thumbnailPosition={"bottom"}
+                showIndex={true}
                 autoPlay={false}
-                showThumbnails={false}
+                //showThumbnails={false}
                 showBullets={false}
                 showNav={true}
               />
+            
             ) : (
               <Icon
                 icon="BsImageFill"

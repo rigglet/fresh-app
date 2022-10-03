@@ -27,6 +27,7 @@ const Projects = ({
   //const [currentImage, setCurrentImage] = useState(null);
 
   const handleProjectClick = (project) => {
+    console.log(project)
     document.body.style.overflowY = "hidden";
     setCurrentProject(project);
     setShowProjectDetails(true);
@@ -75,10 +76,7 @@ const StyledProjects = styled(motion.div)`
   justify-content: space-around;
   row-gap: 4rem;
   column-gap: 2rem;
-  //gap: 10rem;
   flex-wrap: wrap;
-  //overflow-x: scroll;
-  color: black;
 `;
 
 export default Projects;
