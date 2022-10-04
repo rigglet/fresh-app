@@ -48,12 +48,12 @@ const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
 const StyledBar = styled(motion.div)`
   display: flex;
   justify-content: flex-end;
-  column-gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
   background: ${({ bgcolor }) => bgcolor};
   background: #111111;
   background: transparent;
-  //padding: 0.5rem;
+  flex-grow: 1;
   
   .contact-item {
     background: ${({ bgcolor }) => bgcolor};
@@ -82,9 +82,6 @@ const StyledBar = styled(motion.div)`
     p {
       font-size: 0.75rem;
     }
-    
-    
-
   }
 `;
 

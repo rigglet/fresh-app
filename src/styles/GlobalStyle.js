@@ -96,18 +96,18 @@ body{
 } */
 
 .section-header{
-  //border: 1px solid red;
-  //width: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-   
+  flex-shrink: 1;
+  
   .section-title-content{
     display: flex;
     align-items: center;
     justify-content: center;
-
+    flex-shrink: 1;
+    
     //h1 heading on some sections
     .section-heading {
       font-weight: 300;
@@ -124,6 +124,7 @@ body{
     }
   }
 }
+
 //#### RESPONSIVE SECTION ####
   //320px — 480px: Mobile devices
   @media screen and (max-width: 480px) and (orientation: portrait) {

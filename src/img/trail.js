@@ -36,6 +36,6 @@ export default function trail() {
 }
 
 const StyledTrail = styled(motion.svg)`
-  width: 30vw;
+  width: 700px;
   height: 30vh;
 `;

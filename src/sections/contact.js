@@ -1,7 +1,3 @@
-/**
- * Contact Section
- */
-
 import { useState } from "react";
 
 //framer motion and styled components
@@ -87,7 +83,7 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
         }
       })
       .catch((err) => {
-        //console.log(err);
+        console.log(err);
         notify("FAILURE");
       });
   };
@@ -125,29 +121,30 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
         pauseOnFocusLoss
         draggable={false}
         pauseOnHover
-      />
+        />
 
-      <motion.div
-        initial="initial"
-        variants={slideDown}
-        //animate={contactControls}
-        className="section-header"
-      >
-        <div className="section-title-content">
-          <Icon
-            icon="BiMessageRounded"
-            size="30px"
-            color="whitesmoke"
-            title="Contact icon"
-            allIcons={allIcons}
-          />
-          <h1 className="section-heading heading-light">Contact me</h1>
-        </div>
-        <StyledLine height="6px" width="100%" bgColor="#111111" />
-      </motion.div>
-
-      <ContactInfo>
-        <motion.form
+        <div
+          initial="initial"
+          variants={slideDown}
+          animate={contactControls}
+          className="section-header"
+          >
+          <div className="section-title-content">
+            <Icon
+              icon="BiMessageRounded"
+              size="30px"
+              color="whitesmoke"
+              title="Contact icon"
+              allIcons={allIcons}
+              />
+            <h1 className="section-heading heading-light">Contact me</h1>
+          </div>
+          <StyledLine height="6px" width="100%" bgColor="#111111" />
+      </div>
+      
+       <div className="content">
+       <div className="contact-information">
+        <form
           autoComplete="off"
           onSubmit={handleFormSubmit}
           initial="initial"
@@ -185,7 +182,7 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
               type="email"
               value={formData.user_email}
               onChange={handleChange}
-            />
+              />
           </div>
           <div className="form-item">
             <label htmlFor="message">Message:</label>
@@ -197,7 +194,7 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
               rows="3"
               value={formData.message}
               onChange={handleChange}
-            />
+              />
           </div>
 
           <div className="button">
@@ -212,18 +209,22 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
               whileTap={{ scale: 0.95 }}
             />
           </div>
-        </motion.form>
+        </form>
+        </div>
 
         <div className="contact-images">
-          <motion.div
-            className="trail"
-            variants={trailVariants}
-            initial="initial"
-            animate={contactControls}
-          >
-            <Trail />
-          </motion.div>
-          <motion.div
+          
+            <motion.div className="animation-container">
+            <motion.div
+              className="trail"
+              variants={trailVariants}
+              initial="initial"
+              animate={contactControls}
+              >
+              <Trail />
+            </motion.div>
+          
+            <motion.div
             className="outer-plane"
             variants={flyIn}
             initial="initial"
@@ -240,74 +241,71 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
               <Plane />
             </motion.div>
           </motion.div>
+          
+          </motion.div>
 
-          <motion.div
+          <div
             className="contact-bar"
             initial="initial"
             variants={slideUp}
             animate={contactControls}
-          >
+            >
             <ContactIconBar
               size="40px"
               color="whitesmoke"
               bgcolor="var(--highlight-dark)"
               allIcons={allIcons}
-            />
-          </motion.div>
+              />
+          </div> 
         </div>
-      </ContactInfo>
+    </div>
+      
     </ContactSection>
   );
 };
 
 const ContactSection = styled(motion.div)`
-  height: auto;
-  width: 100%;
-  padding: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  //#### RESPONSIVE SECTION ####
-  //320px — 480px: Mobile devices
-  @media screen and (max-width: 480px) and (orientation: portrait) {
-    padding: 0;
-  }
-
-  //320px — 480px: Mobile devices
-  @media screen and (max-width: 850px) and (orientation: landscape) {
-    padding: 0;
-  }
-
-  //481px — 768px: iPads, Tablets
-  @media screen and (min-width: 481px) and (max-width: 769px) and (orientation: portrait),
-    screen and (min-width: 481px) and (max-width: 769px) and (orientation: landscape),
-    screen and (min-width: 1024px) and (max-width: 1200px) and (orientation: portrait),
-    screen and (min-width: 1024px) and (max-width: 1200px) and (orientation: landscape) {
-    padding: 0;
-  }
-`;
-
-const ContactInfo = styled(motion.div)`
-  display: flex;
+  height: 100vh;
   width: 100%;
-  height: auto;
-  flex-grow: 1;
+  padding: 2rem 1rem 1rem 1rem;
   padding: 1rem;
+  align-items: center;
+  row-gap: 1rem;
+  justify-content: space-between;  
+  
+  .section-header {
+    justify-self: flex-start;
+  }
 
+  .content {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 1rem;
+
+    .contact-information{
+      z-index: 10;
+      flex: 1 1 400px;
+    }  
+  }
+  
   form {
     display: flex;
     flex-direction: column;
     flex-basis: 40%;
     flex-grow: 1;
-    flex-shrink: 1;
     justify-content: space-between;
     background: #1f2525;
     background: #2b2b37;
     padding: 2rem;
     border-radius: 10px;
     gap: 1rem;
+    height: 100%;
 
     .form-item {
       display: flex;
@@ -344,59 +342,69 @@ const ContactInfo = styled(motion.div)`
 
   .contact-images {
     position: relative;
-    flex-basis: 40%;
+    flex: 1 1 40%;
     display: flex;
-    flex-grow: 1;
-    align-items: center;
-    justify-content: space-evenly;
-
-    .outer-plane {
+    align-items: flex-end;
+    //justify-content: flex-end;
+    //min-width: 40vw;
+    position: relative;
+    
+    .animation-container {
+      position: absolute;
+      width: 100%;  
+      height: 100%;  
       display: flex;
-      align-self: flex-start;
-      justify-self: flex-end;
-      .plane {
+      justify-content: flex-end;
+      align-items: flex-start;
+
+      .trail{
+        //position: absolute;
+        /* top: 0rem;
+        left: 0rem; */
+        
         display: flex;
-        align-self: flex-start;
-        justify-self: flex-end;
+        justify-self: flex-start;
+        align-self: center;
+        flex-grow: 1;
+        width: 100%;
+        transform: rotate(-5deg) scale(1.2) translateX(0px) translateY(-40px);
+      }
+      
+      .outer-plane {
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding-right: 1rem;
+        
+        .plane {
+          display: flex;
+          justify-self: flex-end;
+        }
       }
     }
-    .contact-bar {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-    }
+
+  }
+  .contact-bar {
+    z-index: 10;
+    bottom: 0;
+    right: 0;
+    width: 100%;
   }
 
   //#### RESPONSIVE SECTION ####
-  //320px — 480px: Mobile devices
-  @media screen and (max-width: 480px) and (orientation: portrait) {
-    padding: 1rem;
-    align-items: unset;
-    .contact-images {
-      display: none;
+  //<800px: smaller devices
+  @media screen and (max-width: 800px) {
+    padding: 0;
+    .contact-bar{
+      position: static;
+    }
+    
+    .trail, .outer-plane, .plane {
+      opacity: 0;
+      z-index: -1;
     }
   }
 
-  //320px — 480px: Mobile devices
-  @media screen and (max-width: 850px) and (orientation: landscape) {
-    padding: 1rem;
-    align-items: unset;
-    .contact-images {
-      display: none;
-    }
-  }
-
-  //481px — 768px: iPads, Tablets
-  @media screen and (min-width: 481px) and (max-width: 769px) and (orientation: portrait),
-    screen and (min-width: 481px) and (max-width: 769px) and (orientation: landscape),
-    screen and (min-width: 1024px) and (max-width: 1200px) and (orientation: portrait),
-    screen and (min-width: 1024px) and (max-width: 1200px) and (orientation: landscape) {
-    padding: 1rem;
-    align-items: unset;
-    .contact-images {
-      display: none;
-    }
-  }
 `;
 
 export default Contact;

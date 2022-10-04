@@ -33,12 +33,13 @@ const StyledContainer = styled(motion.div)`
   align-items: center;
   justify-content: center;
   padding: 1rem 0 0 0;
+  padding: 0;
   //height: ${({ full, half }) => (full ? "93%" : half ? "50%" : "auto")};
   height: ${({ full, half }) => (full ? "100vh" : half ? "50vh" : "auto")};
   //width: ${({ left, right }) => (left || right ? "90vw" : "100vw")};
   width: ${({ left, right }) => (left || right ? "90%" : "100%")};
   min-height: 50vh;
-
+  
   background-color: ${({ light, dark }) =>
     dark
       ? "var(--color-dark-background)"
@@ -46,21 +47,23 @@ const StyledContainer = styled(motion.div)`
       ? "var(--color-light-background)"
       : "var(--color-dark-background)"};
 
-  border-top: ${({ dark, light }) =>
+border-top: ${({ dark, light }) =>
     dark ? "0" : light ? "0.3rem solid var(--container-light-border)" : "0"};
 
   border-bottom: ${({ dark, light }) =>
     dark ? "0" : light ? "0.3rem solid var(--container-light-border)" : "0"};
 
-  border-left: ${({ right }) =>
+border-left: ${({ right }) =>
     right ? "0.3rem solid var(--container-light-border)" : "0"};
   border-right: ${({ left }) =>
     left ? "0.3rem solid var(--container-light-border)" : "0"};
 
-  border-radius: ${({ left, right }) =>
+border-radius: ${({ left, right }) =>
     left ? "0 100px 100px 0;" : right ? "100px 0 0 100px;" : "0"};
 
-  //320px — 480px: Mobile devices
+//border: 1px solid red;
+
+//320px — 480px: Mobile devices
   @media screen and (max-width: 850px) and (orientation: portrait) {
     height: auto;
     //border: 1px solid yellow;

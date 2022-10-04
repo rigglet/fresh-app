@@ -165,7 +165,7 @@ function App() {
                     />
                   </Container>
                 </Section>
-                <Section id="contact" full>
+                <Section id="contact" >
                   <Container dark={true}>
                     <Contact
                       contactRef={contactRef}
