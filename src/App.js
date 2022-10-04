@@ -119,13 +119,13 @@ function App() {
                     <Home homeRef={homeRef} homeControls={homeControls} showNav={showNav}/>
                   </Container>
                 </Section>
-                <Section id="about" full={true}>
-                  <Container light={true}>
+                <Section id="about" full>
+                  <Container light>
                     <About aboutRef={aboutRef} aboutControls={aboutControls} showNav={showNav}/>
                   </Container>
                 </Section>
                 <Section id="portfolio">
-                  <Container dark={true}>
+                  <Container dark>
                     <Portfolio
                       portfolioRef={portfolioRef}
                       portfolioControls={portfolioControls}
@@ -136,7 +136,7 @@ function App() {
                   </Container>
                 </Section>
                 <Section id="skills">
-                  <Container light={true}>
+                  <Container light>
                     <Skills
                       skillsRef={skillsRef}
                       skillsControls={skillsControls}
@@ -146,7 +146,7 @@ function App() {
                   </Container>
                 </Section>
                 <Section id="education">
-                  <Container dark={true}>
+                  <Container dark>
                     <Education
                       educationRef={educationRef}
                       educationControls={educationControls}
@@ -156,7 +156,7 @@ function App() {
                   </Container>
                 </Section>
                 <Section id="experience">
-                  <Container light={true}>
+                  <Container light>
                     <Experience
                       experienceRef={experienceRef}
                       experienceControls={experienceControls}
@@ -166,7 +166,7 @@ function App() {
                   </Container>
                 </Section>
                 <Section id="contact" >
-                  <Container dark={true}>
+                  <Container dark>
                     <Contact
                       contactRef={contactRef}
                       contactControls={contactControls}

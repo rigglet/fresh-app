@@ -28,8 +28,8 @@ const ContactIconBar = ({ size, color, bgcolor, allIcons }) => {
   return (
     <StyledBar bgcolor={bgcolor}>
       {links.map((link) => (
-        <div className="contact-item">
-          <a key={uuidv4()} target="_blank" rel="noreferrer" href={link.address}>
+        <div key={uuidv4()} className="contact-item">
+          <a target="_blank" rel="noreferrer" href={link.address}>
             <Icon
               icon={link.icon}
               color={color}

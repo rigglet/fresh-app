@@ -14,12 +14,12 @@ function section({
   return (
     <StyledSection
       id={id}
-      full={full}
-      half={half}
-      light={light}
-      dark={dark}
-      left={left}
-      right={right}
+      $full={full}
+      $half={half}
+      $light={light}
+      $dark={dark}
+      $left={left}
+      $right={right}
     >
       {children}
     </StyledSection>
@@ -29,20 +29,20 @@ function section({
 const StyledSection = styled(motion.section)`
   background-color: var(--color-dark-background);
 
-  /* justify-content: ${({ full, half }) =>
-    full ? "flex-end" : half ? "center" : "center"}; */
+  /* justify-content: ${({ $full, $half }) =>
+    $full ? "flex-end" : $half ? "center" : "center"}; */
   //justify-content: center;
-  /* align-items: ${({ left, right }) =>
-    left ? "flex-start" : right ? "flex-end" : "center"}; */
-  /* min-height: ${({ full, half }) =>
-    full ? "100vh" : half ? "100vh" : "auto"}; */
+  /* align-items: ${({ $left, $right }) =>
+    $left ? "flex-start" : $right ? "flex-end" : "center"}; */
+  /* min-height: ${({ $full, $half }) =>
+    $full ? "100vh" : $half ? "100vh" : "auto"}; */
 
   display: flex;
   //flex-direction: column;
   align-items: center;
   justify-content: center;
   width: "100vw";
-  height: ${({ full, half }) => (full ? "100vh" : half ? "50vh" : "auto")};
+  height: ${({ $full, $half }) => ($full ? "100vh" : $half ? "50vh" : "auto")};
   min-height: 100vh;
   //scroll-snap-align: center;
 
