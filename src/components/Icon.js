@@ -1,9 +1,10 @@
-import { useMemo, memo } from "react";
+import { useMemo} from "react";
 import PropTypes from "prop-types";
 //icons
 import { IconContext } from "react-icons";
 
 const Icon = ({ icon, color, size, title, className, allIcons }) => {
+  
   let DynamicIcon = allIcons[icon];
 
   return (
@@ -30,4 +31,4 @@ Icon.defaultProps = {
   title: "icon",
 };
 
-export default memo(Icon);
+export default Icon;

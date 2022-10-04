@@ -88,16 +88,16 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
       });
   };
 
-  const CloseButton = ({ closeToast, allIcons }) => (
-    <Icon
-      icon="FaWindowClose"
-      color="#689ed0"
-      size=""
-      title="Close message"
-      onClick={closeToast}
-      allIcons={allIcons}
-    />
-  );
+  // const CloseButton = ({ closeToast, allIcons }) => (
+  //   <Icon
+  //     icon="FaWindowClose"
+  //     color="#689ed0"
+  //     size=""
+  //     title="Close message"
+  //     onClick={closeToast}
+  //     allIcons={allIcons}
+  //   />
+  // );
 
   const handleChange = (e) => {
     setFormData({
@@ -109,11 +109,11 @@ const Contact = ({ contactRef, contactControls, showMenu, allIcons }) => {
   return (
     <ContactSection ref={contactRef}>
       <ToastContainer
-        closeButton={CloseButton}
-        // closeButton={false}
+        //closeButton={CloseButton}
+        closeButton={false}
         transition={Zoom}
         position="bottom-center"
-        autoClose={3000}
+        autoClose={2000}
         hideProgressBar
         newestOnTop={false}
         closeOnClick
