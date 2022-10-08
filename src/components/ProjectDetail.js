@@ -151,7 +151,7 @@ const ProjectDetails = ({ project, projectClose, allIcons }) => {
 
               <div className="address-item">
                 <label>Walkthough video:</label>
-                <a href={project?.walkthroughVideo}>
+                <a href={project?.walkthroughVideo} referrerpolicy="no-referrer" target="_blank">
                   <Icon
                     icon="FaYoutube"
                     color="#ff0000"
