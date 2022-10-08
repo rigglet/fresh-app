@@ -119,7 +119,7 @@ function App() {
                     <Home homeRef={homeRef} homeControls={homeControls} showNav={showNav}/>
                   </Container>
                 </Section>
-                <Section id="about" full>
+                <Section id="about">
                   <Container light>
                     <About aboutRef={aboutRef} aboutControls={aboutControls} showNav={showNav}/>
                   </Container>
