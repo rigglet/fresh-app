@@ -95,10 +95,16 @@ const ProjectCard = ({
               target="_blank"
               rel="noreferrer"
             >
-              <button className="project-card-link-btn">
+              <button className={portfolio
+                ? "project-card-link-btn light-text"
+                : "project-card-link-btn dark-text"
+              }>
                 <FaGithubSquare
                   title="Open project in github"
-                  className="project-card-link-btn-icon"
+                  className={portfolio
+                    ? "project-card-link-btn-icon light-text"
+                    : "project-card-link-btn-icon dark-text"
+                  }   
                   size="25px"
                 />
                 View code
@@ -112,10 +118,16 @@ const ProjectCard = ({
               target="_blank"
               rel="noreferrer"
             >
-              <button className="project-card-link-btn">
+              <button className={portfolio
+                ? "project-card-link-btn light-text"
+                : "project-card-link-btn dark-text"
+              }>
                 <HiLink
                   title="Open live project website"
-                  className="project-card-link-btn-icon"
+                  className={portfolio
+                    ? "project-card-link-btn-icon light-text"
+                    : "project-card-link-btn-icon dark-text"
+                  }
                   size="25px"
                 />
                 View live
@@ -209,7 +221,6 @@ const StyledCard = styled(motion.div)`
       font-size: 1rem;
       cursor: pointer;
       padding: 1rem 3rem;
-      border-radius: 10px;
       //font-variant-caps: all-small-caps;
       text-transform: uppercase;
       display: flex;
@@ -219,21 +230,57 @@ const StyledCard = styled(motion.div)`
       max-width: 200px;
       background: transparent;
       border: 2px solid var(--section-light-border);
+      border-radius: 10px;
       padding: 0.5rem;
       font-size: 10pt;
       color: var(--section-light-border);
       transition: all 0.25s ease;
-      
-      &:hover {
+      &.light-text {
+        color: var(--section-light-border);
+      }
+      &.dark-text {
         color: var(--color-dark-text);
-        background: var(--gradient-ltr-45);
-        box-shadow: none;
+        border: 2px solid var(--color-dark-text);
       }
 
+      &:hover {
+        /* color: var(--color-dark-text);
+        background: var(--gradient-ltr-45);
+        box-shadow: none; */
+        &.light-text {
+          color: var(--color-dark-text);
+          background: var(--gradient-ltr-45);
+          box-shadow: none;
+        }
+        &.dark-text {
+          border: 2px solid var(--color-dark-text);
+          color: var(--section-light-border);
+          background: var(--color-dark-text);
+          box-shadow: none;
+        }
+      }
+
+      
       &:hover .project-card-link-btn-icon {
-        //background: transparent;
-        color: var(--color-dark-text);
-        box-shadow: none;
+        &.light-text {
+          color: #313131;
+          color: var(--color-dark-text);
+        }
+        &.dark-text {
+          color: whitesmoke;
+          color: var(--section-light-border);
+          //var(--color-dark-text);
+        }
+      }
+    }
+
+    .project-card-link-btn-icon {
+      &.light-text {
+        var(--section-light-border);
+      }
+      &.dark-text {
+        color: #313131;
+        var(--color-dark-text);
       }
     }
 

@@ -197,6 +197,7 @@ body{
       background: #689ed0;
       background: linear-gradient(90deg,  #65617d 0%, #689ed0 50%, #c6c6c6 100%);
       color: #1c3b57;
+      var(--color-dark-text);
       border: 2px solid #689ed0;
       background-size: 300%;
       background-position: center;
